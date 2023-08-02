@@ -46,18 +46,21 @@ const rooms = [{
 
 const contenedor = document.querySelector('.contenedor')
 
-rooms.forEach(room => {
-    let habitacion = ''
-    let template = `
-    <div class="habitacion">
-        <h3>${room.tipo}</h3>
-        <p>Precio: $${room.precio}</p>
-        <p>Cocina: ${room.cocina}</p>
-        <p>Baño: ${room.baño}</p>
-        <a class="btn" onclick="mostrarDetalle(${room.id})" class="btn">ver detalle</a>
-    </div>` 
-    contenedor.innerHTML += template
-})
+
+let habitacion = ''
+    for(productos of rooms){
+        habitacion += `
+        <div class="habitacion">
+            <h3>${productos.tipo}</h3>
+            <p>Precio: $${productos.precio}</p>
+            <p>Cocina: ${productos.cocina}</p>
+            <p>Baño: ${productos.baño}</p>
+            <a class="btn" onclick="mostrarDetalle(${productos.id})" class="btn">ver detalle</a>
+        </div>` 
+    }
+   
+    contenedor.innerHTML = habitacion
+
 
 const marco = document.querySelector(".detalle");
 
